@@ -9,7 +9,7 @@
      date). This may be a Nightbot bug. This is why streamUptimeString is needed to check whether the channel is live */
   if (/\bnot live\b/i.test(streamUptimeString)) {
     /* return `${playerName} is not live.`; */
-    return `not live rn. come back when im streaming to check my record`;
+    return `not live rn. come back when im streaming to check my record!! RedCarpet`;
   }
 
   const streamStartDate = new Date(streamStartDateString);
