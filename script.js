@@ -9,7 +9,7 @@
      date). This may be a Nightbot bug. This is why streamUptimeString is needed to check whether the channel is live */
   if (/\bnot live\b/i.test(streamUptimeString)) {
     /* return `${playerName} is not live.`; */
-    return ` `;
+    return ` `; /*This makes it so that it doesn't return a message  when streamer is offline*/
   }
 
   const streamStartDate = new Date(streamStartDateString);
@@ -68,7 +68,7 @@
     let currentTierPatched = getMmrHistoryResponse.data[0].currenttierpatched;
     let rankingInTier = getMmrHistoryResponse.data[0].ranking_in_tier;
 
-    return `@$(user), ${winCountThisStream}W - ${lossCountThisStream}L - ${drawCountThisStream}D. ${fullStreamEloChange >= 0 ? 'Up' : 'Down'} ${fullStreamEloChange}RR this stream | try !rank or !peak`;
+    return `@${user}, ${winCountThisStream}W - ${lossCountThisStream}L - ${drawCountThisStream}D. ${fullStreamEloChange >= 0 ? 'Up' : 'Down'} ${fullStreamEloChange}RR this stream | try !rank or !peak`;
   } catch (e) {
     return `Failed to parse MMR history: ${e.message}: ${getMmrHistoryResponseJson}`.slice(0, 400);
   }
